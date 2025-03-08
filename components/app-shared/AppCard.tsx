@@ -3,7 +3,7 @@ import type { AppMetadata } from "../../types/app";
 import { Card, CardHeader, CardTitle, CardDescription } from "../ui/card";
 import { cn } from "../../lib/utils";
 
-export default function AppCard(props: AppMetadata) {
+export function AppCard(props: AppMetadata) {
   const { name, description, icon, path } = props;
 
   return (
