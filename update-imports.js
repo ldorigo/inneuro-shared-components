@@ -15,7 +15,15 @@ const replacements = [
   },
   {
     from: /from\s+["']@\/lib\/utils["']/g,
-    to: 'from "../../lib/utils"',
+    to: 'from "../../../lib/utils"',
+  },
+];
+
+// Special replacements for tooltip components
+const tooltipReplacements = [
+  {
+    from: /from\s+["']\.\.\/\.\.\/lib\/utils["']/g,
+    to: 'from "../../../lib/utils"',
   },
 ];
 
@@ -31,10 +39,22 @@ async function processFile(filePath) {
     let newContent = content;
 
     let hasChanges = false;
-    for (const { from, to } of replacements) {
-      if (from.test(newContent)) {
-        newContent = newContent.replace(from, to);
-        hasChanges = true;
+
+    // Apply special replacements for tooltip components
+    if (filePath.includes("tooltip")) {
+      for (const { from, to } of tooltipReplacements) {
+        if (from.test(newContent)) {
+          newContent = newContent.replace(from, to);
+          hasChanges = true;
+        }
+      }
+    } else {
+      // Apply regular replacements for other components
+      for (const { from, to } of replacements) {
+        if (from.test(newContent)) {
+          newContent = newContent.replace(from, to);
+          hasChanges = true;
+        }
       }
     }
 
