@@ -26,6 +26,3 @@ export * from "./lib/utils";
 
 // Export types
 export * from "./types/app";
-
-// Export styles
-export { default as styles } from "./styles.css";
