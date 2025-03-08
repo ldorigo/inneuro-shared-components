@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./select";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 interface NumberWithUnitProps {
   label?: string;

@@ -5,8 +5,8 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-} from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+} from "../card";
+import { cn } from "../../lib/utils";
 
 export default function AppCard(props: AppMetadata) {
   const { name, description, icon, path } = props;
